@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Creates EC2 instance.
+
+Resources:
+    
+    EC2Instance:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-03ed5bd63ba378bd8"
+            InstanceType: "t2.micro"
+            SecurityGroupIds: ["sg-09613d39346a1db20"]
+            KeyName: "myvpc1key"
+            SubnetId: "subnet-0c2d23806933effbd"
+            Tags:
+                -
+                    Key: "purpose"
+                    Value: "Sudip's CloudFormationTesting"
+ 
+Outputs:
+    FirstEC2InstanceId:
+        Description: "Instance Id of first EC2 Instance"
+        Value: !Ref EC2Instance
+    
+
+
